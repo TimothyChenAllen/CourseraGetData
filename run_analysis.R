@@ -49,7 +49,7 @@ names(readings.raw) <- good_names
 
 ######################################
 # 2. Extracts only the measurements on the mean and standard deviation for
-# each measurement.  ######################################
+# each measurement.
 readings <- select(readings.raw, matches("mean|std", ignore.case=FALSE))
 
 # Check to ensure that we read the right number of rows
@@ -67,13 +67,20 @@ all_subject <- read.csv("UCI HAR Dataset/subject_all.txt", header=FALSE,
                           col.names="Subject")
 all_activity <- read.csv("UCI HAR Dataset/y_all.txt", header=FALSE,
                            col.names="activity_number")
+all_activity$activity_number <- factor(all_activity$activity_number)
+levels(all_activity$activity_number)[levels(all_activity$activity_number) == "1"] <- "WALKING"
+levels(all_activity$activity_number)[levels(all_activity$activity_number) == "2"] <- "WALKING_UPSTAIRS"
+levels(all_activity$activity_number)[levels(all_activity$activity_number) == "3"] <- "WALKING_DOWNSTAIRS"
+levels(all_activity$activity_number)[levels(all_activity$activity_number) == "4"] <- "SITTING"
+levels(all_activity$activity_number)[levels(all_activity$activity_number) == "5"] <- "STANDING"
+levels(all_activity$activity_number)[levels(all_activity$activity_number) == "6"] <- "LAYING"
 
 ######################################
 # 4. Appropriately labels the data set with descriptive variable names. 
-all_activity_labels <- merge(x=all_activity, y=activity_labels, by="activity_number")
+#all_activity_labels <- merge(x=all_activity, y=activity_labels, by="activity_number")
 
 # Finally, let's cbind everything together
-subject.measures <- cbind(Subject=all_subject$Subject, Activity=all_activity_labels$activity_name,
+subject.measures <- cbind(Subject=all_subject$Subject, Activity=all_activity$activity_number,
                     readings)
 
 ######################################
@@ -89,8 +96,7 @@ feature.means <- rename(feature.means, Subject=Group.1, Activity=Group.2) %>%
 colnames(feature.means) <- 
         c("Subject","Activity",paste("MEAN_",colnames(feature.means[,3:ncol(subject.measures)]),sep=""))
 
-# View the finished products
-View(subject.measures) # Means and standard deviations
+# View the finished product
 View(feature.means)    # Means of each measure for each subject/activity pair
 
 # Write out the finished product

@@ -5,7 +5,11 @@
 # created in a data-driven process in this script, so all variables in
 # feature_means.txt are explained in CodeBook.md.
 
+# This function takes a variable name and returns a human-readable version
+# of the same name.
 friendly.description <- function(n) {
+        # Simply use regular expressions to substitute patterns for readable
+        # text.
         n <- sub(pattern="Subject", replacement="Number of test subject (1-30)", n)
         n <- sub(pattern="Activity", replacement="Activity causing readings: LAYING, SITTING, STANDING, WALKING, WALKING_DOWNSTAIRS, WALKING_UPSTAIRS", n)
         
@@ -24,6 +28,7 @@ friendly.description <- function(n) {
         n
 }
 
+# Open the file to write to
 cb.con <- file("CodeBook.md", "w+")
 writeLines("# Code Book\n", con = cb.con)
 writeLines("(See the [README](README.md) for an explanation of project scripts
@@ -71,7 +76,5 @@ writeLines("-----------|--------", con = cb.con)
 writeLines(paste(names(feature.means), friendly.description(names(feature.means)), sep="|"),
            con = cb.con)
 
+# Close the file
 close(cb.con)
-
-# require(knitr)
-# knit2html(input = "CodeBook.md", "CodeBook.html")
