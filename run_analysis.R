@@ -13,7 +13,6 @@ nice.names <- function(ugly.names) {
         return(r)
 }
 
-# Get the data ######################################
 # Download and unzip the zip file if it's not already downloaded
 if (!file.exists("UCI HAR Dataset.zip")) {
         zipURL <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
@@ -23,6 +22,7 @@ if (!file.exists("UCI HAR Dataset.zip")) {
 # Unzip the zip file if necessary
 if (!file.exists("UCI HAR Dataset")) unzip(zipfile="UCI HAR Dataset.zip")
 
+######################################
 # 1. Merge the training and the test sets to create one data set.
 if (!file.exists("UCI HAR Dataset/X_all.txt")) {
         # Copy the training data to "all" data
@@ -47,8 +47,9 @@ readings.raw <- read_table(file="UCI HAR Dataset/X_all.txt",
                        col_names=as.character(features$varname))
 names(readings.raw) <- good_names
 
+######################################
 # 2. Extracts only the measurements on the mean and standard deviation for
-# each measurement. 
+# each measurement.  ######################################
 readings <- select(readings.raw, matches("mean|std", ignore.case=FALSE))
 
 # Check to ensure that we read the right number of rows
@@ -56,6 +57,7 @@ readings <- select(readings.raw, matches("mean|std", ignore.case=FALSE))
 if (NROW(readings) != 10299) warning(paste("Did not read in 10299 rows, read",
                                          NROW(readings),"rows."))
 
+######################################
 # 3. Uses descriptive activity names to name the activities in the data set
 activity_labels <- read.table("UCI HAR Dataset/activity_labels.txt", sep=" ",
                               col.names=c("activity_number","activity_name"))
@@ -66,6 +68,7 @@ all_subject <- read.csv("UCI HAR Dataset/subject_all.txt", header=FALSE,
 all_activity <- read.csv("UCI HAR Dataset/y_all.txt", header=FALSE,
                            col.names="activity_number")
 
+######################################
 # 4. Appropriately labels the data set with descriptive variable names. 
 all_activity_labels <- merge(x=all_activity, y=activity_labels, by="activity_number")
 
@@ -73,6 +76,7 @@ all_activity_labels <- merge(x=all_activity, y=activity_labels, by="activity_num
 subject.measures <- cbind(Subject=all_subject$Subject, Activity=all_activity_labels$activity_name,
                     readings)
 
+######################################
 # 5. From the data set in step 4, creates a second, independent tidy data set 
 # with the average of each variable for each activity and each subject
 feature.means <- aggregate.data.frame(subject.measures[,3:ncol(subject.measures)], 

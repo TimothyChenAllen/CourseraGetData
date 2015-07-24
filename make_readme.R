@@ -1,3 +1,6 @@
+# make_readme.R - Automates creation of the README.md file.
+# This file is sourced from the run_analysis.R script to ensure
+# that the README.md file is current.
 re.con <- file("README.md", "w+")
 
 writeLines("# CourseraGetData\nCourse project for the Coursera 

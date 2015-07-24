@@ -1,4 +1,9 @@
-# Create the codebook
+# make_codebook.R - Automates creation of the CodeBook.md file.
+# This file is sourced from the run_analysis.R script to ensure
+# that the CodeBook.md file is current.
+# Note that the list of variables and their human-friendly names are
+# created in a data-driven process in this script, so all variables in
+# feature_means.txt are explained in CodeBook.md.
 
 friendly.description <- function(n) {
         n <- sub(pattern="Subject", replacement="Number of test subject (1-30)", n)
