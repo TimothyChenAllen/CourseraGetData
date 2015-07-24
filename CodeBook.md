@@ -1,21 +1,130 @@
-# Data locations
+# Code Book
 
-* `X_test.txt`/`X_train.txt`: There are 10299 records with 561 columns
-* `features.txt`: contains 561 rows explaining the variables in the 561 columns
-in X_test.txt and X_train.txt
+(See the [README](README.md) for an explanation of project scripts
+and their interactions.)
 
-# Variable Naming Conventions
-The 561 variables have a naming convention:
+## Data
 
-* `t/f` - time domain/frequency domain
-* `Body/Gravity` - Separated signals for body or gravity
-* `Acc/Gyro` - Signal from Accelerometer or Gyroscope
-* `Jerk` - Jerk Signal (only appears with "Body" variables)
-* `Mag` - Magnitude
-* `mean()/std()`: estimated statistics for mean and standard deviation (there
-are other estimated statistics, but we only are interested in mean and std).
-79 of the 561 variables are `mean` or `std` variables.
+The data for this project were collected as part of the study
+of [Human Activity Recognition using Smartphones](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones),
+using readings gathered from the accelerometers
+from Samsung Galaxy S smartphones.  30 subjects gave measurements
+while doing a variety of activities (see *Data* below for details
+of the activities).
 
-For example, `tBodyAccJerkMag-mean()` is the mean of time-domain data from the 
-accelerometer about jerk signals.  Not every combination exists
+## Finished Products
 
+The finished products of this project are:
+
+* `feature_means.txt` - `mean`, `meanFreq`, and `std` columns, 
+aggregated using `mean`
+* `README.md` - Explains the project, scripts, and interactions
+* `CodeBook.md` - Explanation of the datasets, transformations,
+and a human-friendly listing of variables in the `feature_means.txt` file.
+
+## Data Transformations and Processing
+
+Several transformations were necessary to create the tidy
+dataset required by the project:
+
+1. The data were downloaded in `zip` format and were unzipped.
+2. As the data were split into `training` and `test` datasets,
+it was necessary to create a single concatenated dataset.
+3. Feature names were not valid `R` variable names, so a function
+was written to create valid and descriptive variable names.
+4. Only `mean` and `standard deviation` variables were of interest,
+so `dplyr::filter` and `dplyr::select` were used to reduce the set of variables
+to only those containing the words `mean`, `meanFreq`, or `std`, as well as
+`Subject` and `Activity`
+5. Test subject numbers and their activities were added to the
+dataset.  Activites were transformed to give friendly text names.
+6. To calculate the `mean` of all remaining columns in the dataset,
+`aggregate.data.frame` was used.
+7. The final dataset was written out using `write.table`.
+
+
+## Variables
+
+Variable Name|Explanation
+-----------|--------
+Subject|Number of test subject (1-30)
+Activity|Activity causing readings: LAYING, SITTING, STANDING, WALKING, WALKING_DOWNSTAIRS, WALKING_UPSTAIRS
+MEAN_tBodyAcc.mean.X|Mean of time domain Body accelerometer mean X
+MEAN_tBodyAcc.mean.Y|Mean of time domain Body accelerometer mean Y
+MEAN_tBodyAcc.mean.Z|Mean of time domain Body accelerometer mean Z
+MEAN_tBodyAcc.std.X|Mean of time domain Body accelerometer std X
+MEAN_tBodyAcc.std.Y|Mean of time domain Body accelerometer std Y
+MEAN_tBodyAcc.std.Z|Mean of time domain Body accelerometer std Z
+MEAN_tGravityAcc.mean.X|Mean of time domain Gravity accelerometer mean X
+MEAN_tGravityAcc.mean.Y|Mean of time domain Gravity accelerometer mean Y
+MEAN_tGravityAcc.mean.Z|Mean of time domain Gravity accelerometer mean Z
+MEAN_tGravityAcc.std.X|Mean of time domain Gravity accelerometer std X
+MEAN_tGravityAcc.std.Y|Mean of time domain Gravity accelerometer std Y
+MEAN_tGravityAcc.std.Z|Mean of time domain Gravity accelerometer std Z
+MEAN_tBodyAccJerk.mean.X|Mean of time domain Body accelerometer Jerk mean X
+MEAN_tBodyAccJerk.mean.Y|Mean of time domain Body accelerometer Jerk mean Y
+MEAN_tBodyAccJerk.mean.Z|Mean of time domain Body accelerometer Jerk mean Z
+MEAN_tBodyAccJerk.std.X|Mean of time domain Body accelerometer Jerk std X
+MEAN_tBodyAccJerk.std.Y|Mean of time domain Body accelerometer Jerk std Y
+MEAN_tBodyAccJerk.std.Z|Mean of time domain Body accelerometer Jerk std Z
+MEAN_tBodyGyro.mean.X|Mean of time domain Body gyroscope mean X
+MEAN_tBodyGyro.mean.Y|Mean of time domain Body gyroscope mean Y
+MEAN_tBodyGyro.mean.Z|Mean of time domain Body gyroscope mean Z
+MEAN_tBodyGyro.std.X|Mean of time domain Body gyroscope std X
+MEAN_tBodyGyro.std.Y|Mean of time domain Body gyroscope std Y
+MEAN_tBodyGyro.std.Z|Mean of time domain Body gyroscope std Z
+MEAN_tBodyGyroJerk.mean.X|Mean of time domain Body gyroscope Jerk mean X
+MEAN_tBodyGyroJerk.mean.Y|Mean of time domain Body gyroscope Jerk mean Y
+MEAN_tBodyGyroJerk.mean.Z|Mean of time domain Body gyroscope Jerk mean Z
+MEAN_tBodyGyroJerk.std.X|Mean of time domain Body gyroscope Jerk std X
+MEAN_tBodyGyroJerk.std.Y|Mean of time domain Body gyroscope Jerk std Y
+MEAN_tBodyGyroJerk.std.Z|Mean of time domain Body gyroscope Jerk std Z
+MEAN_tBodyAccMag.mean|Mean of time domain Body accelerometer magnitude mean
+MEAN_tBodyAccMag.std|Mean of time domain Body accelerometer magnitude std
+MEAN_tGravityAccMag.mean|Mean of time domain Gravity accelerometer magnitude mean
+MEAN_tGravityAccMag.std|Mean of time domain Gravity accelerometer magnitude std
+MEAN_tBodyAccJerkMag.mean|Mean of time domain Body accelerometer Jerk magnitude mean
+MEAN_tBodyAccJerkMag.std|Mean of time domain Body accelerometer Jerk magnitude std
+MEAN_tBodyGyroMag.mean|Mean of time domain Body gyroscope magnitude mean
+MEAN_tBodyGyroMag.std|Mean of time domain Body gyroscope magnitude std
+MEAN_tBodyGyroJerkMag.mean|Mean of time domain Body gyroscope Jerk magnitude mean
+MEAN_tBodyGyroJerkMag.std|Mean of time domain Body gyroscope Jerk magnitude std
+MEAN_fBodyAcc.mean.X|Mean of frequency domain Body accelerometer mean X
+MEAN_fBodyAcc.mean.Y|Mean of frequency domain Body accelerometer mean Y
+MEAN_fBodyAcc.mean.Z|Mean of frequency domain Body accelerometer mean Z
+MEAN_fBodyAcc.std.X|Mean of frequency domain Body accelerometer std X
+MEAN_fBodyAcc.std.Y|Mean of frequency domain Body accelerometer std Y
+MEAN_fBodyAcc.std.Z|Mean of frequency domain Body accelerometer std Z
+MEAN_fBodyAcc.meanFreq.X|Mean of frequency domain Body accelerometer mean frequency X
+MEAN_fBodyAcc.meanFreq.Y|Mean of frequency domain Body accelerometer mean frequency Y
+MEAN_fBodyAcc.meanFreq.Z|Mean of frequency domain Body accelerometer mean frequency Z
+MEAN_fBodyAccJerk.mean.X|Mean of frequency domain Body accelerometer Jerk mean X
+MEAN_fBodyAccJerk.mean.Y|Mean of frequency domain Body accelerometer Jerk mean Y
+MEAN_fBodyAccJerk.mean.Z|Mean of frequency domain Body accelerometer Jerk mean Z
+MEAN_fBodyAccJerk.std.X|Mean of frequency domain Body accelerometer Jerk std X
+MEAN_fBodyAccJerk.std.Y|Mean of frequency domain Body accelerometer Jerk std Y
+MEAN_fBodyAccJerk.std.Z|Mean of frequency domain Body accelerometer Jerk std Z
+MEAN_fBodyAccJerk.meanFreq.X|Mean of frequency domain Body accelerometer Jerk mean frequency X
+MEAN_fBodyAccJerk.meanFreq.Y|Mean of frequency domain Body accelerometer Jerk mean frequency Y
+MEAN_fBodyAccJerk.meanFreq.Z|Mean of frequency domain Body accelerometer Jerk mean frequency Z
+MEAN_fBodyGyro.mean.X|Mean of frequency domain Body gyroscope mean X
+MEAN_fBodyGyro.mean.Y|Mean of frequency domain Body gyroscope mean Y
+MEAN_fBodyGyro.mean.Z|Mean of frequency domain Body gyroscope mean Z
+MEAN_fBodyGyro.std.X|Mean of frequency domain Body gyroscope std X
+MEAN_fBodyGyro.std.Y|Mean of frequency domain Body gyroscope std Y
+MEAN_fBodyGyro.std.Z|Mean of frequency domain Body gyroscope std Z
+MEAN_fBodyGyro.meanFreq.X|Mean of frequency domain Body gyroscope mean frequency X
+MEAN_fBodyGyro.meanFreq.Y|Mean of frequency domain Body gyroscope mean frequency Y
+MEAN_fBodyGyro.meanFreq.Z|Mean of frequency domain Body gyroscope mean frequency Z
+MEAN_fBodyAccMag.mean|Mean of frequency domain Body accelerometer magnitude mean
+MEAN_fBodyAccMag.std|Mean of frequency domain Body accelerometer magnitude std
+MEAN_fBodyAccMag.meanFreq|Mean of frequency domain Body accelerometer magnitude mean frequency
+MEAN_fBodyBodyAccJerkMag.mean|Mean of frequency domain Body Body accelerometer Jerk magnitude mean
+MEAN_fBodyBodyAccJerkMag.std|Mean of frequency domain Body Body accelerometer Jerk magnitude std
+MEAN_fBodyBodyAccJerkMag.meanFreq|Mean of frequency domain Body Body accelerometer Jerk magnitude mean frequency
+MEAN_fBodyBodyGyroMag.mean|Mean of frequency domain Body Body gyroscope magnitude mean
+MEAN_fBodyBodyGyroMag.std|Mean of frequency domain Body Body gyroscope magnitude std
+MEAN_fBodyBodyGyroMag.meanFreq|Mean of frequency domain Body Body gyroscope magnitude mean frequency
+MEAN_fBodyBodyGyroJerkMag.mean|Mean of frequency domain Body Body gyroscope Jerk magnitude mean
+MEAN_fBodyBodyGyroJerkMag.std|Mean of frequency domain Body Body gyroscope Jerk magnitude std
+MEAN_fBodyBodyGyroJerkMag.meanFreq|Mean of frequency domain Body Body gyroscope Jerk magnitude mean frequency
