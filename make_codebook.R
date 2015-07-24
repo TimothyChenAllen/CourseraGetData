@@ -20,11 +20,12 @@ friendly.description <- function(n) {
         
         n <- sub(" t ", " time domain ", n)
         n <- sub(" f ", " frequency domain ", n)
-        n <- sub(" Acc ", " accelerometer (units: standard gravity units 'g')", n)
-        n <- sub(" Gyro ", " gyroscope (units: radians/second)", n)
+        n <- sub(" Acc ", " accelerometer (units: standard gravity units 'g') ", n)
+        n <- sub(" Gyro ", " gyroscope (units: radians/second) ", n)
         n <- sub(" Mag ", " magnitude ", n)
         n <- sub(" Mag ", " magnitude ", n)
         n <- sub(" Freq", " frequency", n)
+        n <- sub(" std", " Standard Deviation", n)
         n
 }
 
