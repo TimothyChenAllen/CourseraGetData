@@ -20,8 +20,8 @@ friendly.description <- function(n) {
         
         n <- sub(" t ", " time domain ", n)
         n <- sub(" f ", " frequency domain ", n)
-        n <- sub(" Acc ", " accelerometer ", n)
-        n <- sub(" Gyro ", " gyroscope ", n)
+        n <- sub(" Acc ", " accelerometer (units: standard gravity units 'g')", n)
+        n <- sub(" Gyro ", " gyroscope (units: radians/second)", n)
         n <- sub(" Mag ", " magnitude ", n)
         n <- sub(" Mag ", " magnitude ", n)
         n <- sub(" Freq", " frequency", n)
@@ -45,7 +45,8 @@ of the activities).\n", con=cb.con)
 writeLines("## Finished Products\n", con=cb.con)
 writeLines("The finished products of this project are:\n", con=cb.con)
 writeLines("* `feature_means.txt` - `mean`, `meanFreq`, and `std` columns, 
-aggregated using `mean`", con=cb.con)
+aggregated using `mean` - *NOTE*: Dimensions of this dataset are 180x81, as
+I include `meanFreq` as well as `mean` variables.", con=cb.con)
 writeLines("* `README.md` - Explains the project, scripts, and interactions",
            con=cb.con)
 writeLines("* `CodeBook.md` - Explanation of the datasets, transformations,

@@ -18,7 +18,8 @@ the dataset.\n", con=re.con)
 writeLines("## Finished Products\n", con=re.con)
 writeLines("The finished products of this project are:\n", con=re.con)
 writeLines("* `feature_means.txt` - `mean`, `meanFreq`, and `std` columns, 
-aggregated using `mean`", con=re.con)
+aggregated using `mean` - *NOTE*: Dimensions of this dataset are 180x81, as
+I include `meanFreq` as well as `mean` variables.", con=re.con)
 writeLines("* `README.md` - Explains the project, scripts, and interactions",
            con=re.con)
 writeLines("* `CodeBook.md` - Explanation of the datasets, transformations,

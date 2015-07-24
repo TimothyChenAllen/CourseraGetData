@@ -17,7 +17,8 @@ the dataset.
 The finished products of this project are:
 
 * `feature_means.txt` - `mean`, `meanFreq`, and `std` columns, 
-aggregated using `mean`
+aggregated using `mean` - *NOTE*: Dimensions of this dataset are 180x81, as
+I include `meanFreq` as well as `mean` variables.
 * `README.md` - Explains the project, scripts, and interactions
 * `CodeBook.md` - Explanation of the datasets, transformations,
 and a human-friendly listing of variables in the `feature_means.txt` file.

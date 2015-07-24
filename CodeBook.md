@@ -17,7 +17,8 @@ of the activities).
 The finished products of this project are:
 
 * `feature_means.txt` - `mean`, `meanFreq`, and `std` columns, 
-aggregated using `mean`
+aggregated using `mean` - *NOTE*: Dimensions of this dataset are 180x81, as
+I include `meanFreq` as well as `mean` variables.
 * `README.md` - Explains the project, scripts, and interactions
 * `CodeBook.md` - Explanation of the datasets, transformations,
 and a human-friendly listing of variables in the `feature_means.txt` file.
@@ -49,82 +50,82 @@ Variable Name|Explanation
 -----------|--------
 Subject|Number of test subject (1-30)
 Activity|Activity causing readings: LAYING, SITTING, STANDING, WALKING, WALKING_DOWNSTAIRS, WALKING_UPSTAIRS
-MEAN_tBodyAcc.mean.X|Mean of time domain Body accelerometer mean X
-MEAN_tBodyAcc.mean.Y|Mean of time domain Body accelerometer mean Y
-MEAN_tBodyAcc.mean.Z|Mean of time domain Body accelerometer mean Z
-MEAN_tBodyAcc.std.X|Mean of time domain Body accelerometer std X
-MEAN_tBodyAcc.std.Y|Mean of time domain Body accelerometer std Y
-MEAN_tBodyAcc.std.Z|Mean of time domain Body accelerometer std Z
-MEAN_tGravityAcc.mean.X|Mean of time domain Gravity accelerometer mean X
-MEAN_tGravityAcc.mean.Y|Mean of time domain Gravity accelerometer mean Y
-MEAN_tGravityAcc.mean.Z|Mean of time domain Gravity accelerometer mean Z
-MEAN_tGravityAcc.std.X|Mean of time domain Gravity accelerometer std X
-MEAN_tGravityAcc.std.Y|Mean of time domain Gravity accelerometer std Y
-MEAN_tGravityAcc.std.Z|Mean of time domain Gravity accelerometer std Z
-MEAN_tBodyAccJerk.mean.X|Mean of time domain Body accelerometer Jerk mean X
-MEAN_tBodyAccJerk.mean.Y|Mean of time domain Body accelerometer Jerk mean Y
-MEAN_tBodyAccJerk.mean.Z|Mean of time domain Body accelerometer Jerk mean Z
-MEAN_tBodyAccJerk.std.X|Mean of time domain Body accelerometer Jerk std X
-MEAN_tBodyAccJerk.std.Y|Mean of time domain Body accelerometer Jerk std Y
-MEAN_tBodyAccJerk.std.Z|Mean of time domain Body accelerometer Jerk std Z
-MEAN_tBodyGyro.mean.X|Mean of time domain Body gyroscope mean X
-MEAN_tBodyGyro.mean.Y|Mean of time domain Body gyroscope mean Y
-MEAN_tBodyGyro.mean.Z|Mean of time domain Body gyroscope mean Z
-MEAN_tBodyGyro.std.X|Mean of time domain Body gyroscope std X
-MEAN_tBodyGyro.std.Y|Mean of time domain Body gyroscope std Y
-MEAN_tBodyGyro.std.Z|Mean of time domain Body gyroscope std Z
-MEAN_tBodyGyroJerk.mean.X|Mean of time domain Body gyroscope Jerk mean X
-MEAN_tBodyGyroJerk.mean.Y|Mean of time domain Body gyroscope Jerk mean Y
-MEAN_tBodyGyroJerk.mean.Z|Mean of time domain Body gyroscope Jerk mean Z
-MEAN_tBodyGyroJerk.std.X|Mean of time domain Body gyroscope Jerk std X
-MEAN_tBodyGyroJerk.std.Y|Mean of time domain Body gyroscope Jerk std Y
-MEAN_tBodyGyroJerk.std.Z|Mean of time domain Body gyroscope Jerk std Z
-MEAN_tBodyAccMag.mean|Mean of time domain Body accelerometer magnitude mean
-MEAN_tBodyAccMag.std|Mean of time domain Body accelerometer magnitude std
-MEAN_tGravityAccMag.mean|Mean of time domain Gravity accelerometer magnitude mean
-MEAN_tGravityAccMag.std|Mean of time domain Gravity accelerometer magnitude std
-MEAN_tBodyAccJerkMag.mean|Mean of time domain Body accelerometer Jerk magnitude mean
-MEAN_tBodyAccJerkMag.std|Mean of time domain Body accelerometer Jerk magnitude std
-MEAN_tBodyGyroMag.mean|Mean of time domain Body gyroscope magnitude mean
-MEAN_tBodyGyroMag.std|Mean of time domain Body gyroscope magnitude std
-MEAN_tBodyGyroJerkMag.mean|Mean of time domain Body gyroscope Jerk magnitude mean
-MEAN_tBodyGyroJerkMag.std|Mean of time domain Body gyroscope Jerk magnitude std
-MEAN_fBodyAcc.mean.X|Mean of frequency domain Body accelerometer mean X
-MEAN_fBodyAcc.mean.Y|Mean of frequency domain Body accelerometer mean Y
-MEAN_fBodyAcc.mean.Z|Mean of frequency domain Body accelerometer mean Z
-MEAN_fBodyAcc.std.X|Mean of frequency domain Body accelerometer std X
-MEAN_fBodyAcc.std.Y|Mean of frequency domain Body accelerometer std Y
-MEAN_fBodyAcc.std.Z|Mean of frequency domain Body accelerometer std Z
-MEAN_fBodyAcc.meanFreq.X|Mean of frequency domain Body accelerometer mean frequency X
-MEAN_fBodyAcc.meanFreq.Y|Mean of frequency domain Body accelerometer mean frequency Y
-MEAN_fBodyAcc.meanFreq.Z|Mean of frequency domain Body accelerometer mean frequency Z
-MEAN_fBodyAccJerk.mean.X|Mean of frequency domain Body accelerometer Jerk mean X
-MEAN_fBodyAccJerk.mean.Y|Mean of frequency domain Body accelerometer Jerk mean Y
-MEAN_fBodyAccJerk.mean.Z|Mean of frequency domain Body accelerometer Jerk mean Z
-MEAN_fBodyAccJerk.std.X|Mean of frequency domain Body accelerometer Jerk std X
-MEAN_fBodyAccJerk.std.Y|Mean of frequency domain Body accelerometer Jerk std Y
-MEAN_fBodyAccJerk.std.Z|Mean of frequency domain Body accelerometer Jerk std Z
-MEAN_fBodyAccJerk.meanFreq.X|Mean of frequency domain Body accelerometer Jerk mean frequency X
-MEAN_fBodyAccJerk.meanFreq.Y|Mean of frequency domain Body accelerometer Jerk mean frequency Y
-MEAN_fBodyAccJerk.meanFreq.Z|Mean of frequency domain Body accelerometer Jerk mean frequency Z
-MEAN_fBodyGyro.mean.X|Mean of frequency domain Body gyroscope mean X
-MEAN_fBodyGyro.mean.Y|Mean of frequency domain Body gyroscope mean Y
-MEAN_fBodyGyro.mean.Z|Mean of frequency domain Body gyroscope mean Z
-MEAN_fBodyGyro.std.X|Mean of frequency domain Body gyroscope std X
-MEAN_fBodyGyro.std.Y|Mean of frequency domain Body gyroscope std Y
-MEAN_fBodyGyro.std.Z|Mean of frequency domain Body gyroscope std Z
-MEAN_fBodyGyro.meanFreq.X|Mean of frequency domain Body gyroscope mean frequency X
-MEAN_fBodyGyro.meanFreq.Y|Mean of frequency domain Body gyroscope mean frequency Y
-MEAN_fBodyGyro.meanFreq.Z|Mean of frequency domain Body gyroscope mean frequency Z
-MEAN_fBodyAccMag.mean|Mean of frequency domain Body accelerometer magnitude mean
-MEAN_fBodyAccMag.std|Mean of frequency domain Body accelerometer magnitude std
-MEAN_fBodyAccMag.meanFreq|Mean of frequency domain Body accelerometer magnitude mean frequency
-MEAN_fBodyBodyAccJerkMag.mean|Mean of frequency domain Body Body accelerometer Jerk magnitude mean
-MEAN_fBodyBodyAccJerkMag.std|Mean of frequency domain Body Body accelerometer Jerk magnitude std
-MEAN_fBodyBodyAccJerkMag.meanFreq|Mean of frequency domain Body Body accelerometer Jerk magnitude mean frequency
-MEAN_fBodyBodyGyroMag.mean|Mean of frequency domain Body Body gyroscope magnitude mean
-MEAN_fBodyBodyGyroMag.std|Mean of frequency domain Body Body gyroscope magnitude std
-MEAN_fBodyBodyGyroMag.meanFreq|Mean of frequency domain Body Body gyroscope magnitude mean frequency
-MEAN_fBodyBodyGyroJerkMag.mean|Mean of frequency domain Body Body gyroscope Jerk magnitude mean
-MEAN_fBodyBodyGyroJerkMag.std|Mean of frequency domain Body Body gyroscope Jerk magnitude std
-MEAN_fBodyBodyGyroJerkMag.meanFreq|Mean of frequency domain Body Body gyroscope Jerk magnitude mean frequency
+MEAN_tBodyAcc.mean.X|Mean of time domain Body accelerometer (units: standard gravity units 'g')mean X
+MEAN_tBodyAcc.mean.Y|Mean of time domain Body accelerometer (units: standard gravity units 'g')mean Y
+MEAN_tBodyAcc.mean.Z|Mean of time domain Body accelerometer (units: standard gravity units 'g')mean Z
+MEAN_tBodyAcc.std.X|Mean of time domain Body accelerometer (units: standard gravity units 'g')std X
+MEAN_tBodyAcc.std.Y|Mean of time domain Body accelerometer (units: standard gravity units 'g')std Y
+MEAN_tBodyAcc.std.Z|Mean of time domain Body accelerometer (units: standard gravity units 'g')std Z
+MEAN_tGravityAcc.mean.X|Mean of time domain Gravity accelerometer (units: standard gravity units 'g')mean X
+MEAN_tGravityAcc.mean.Y|Mean of time domain Gravity accelerometer (units: standard gravity units 'g')mean Y
+MEAN_tGravityAcc.mean.Z|Mean of time domain Gravity accelerometer (units: standard gravity units 'g')mean Z
+MEAN_tGravityAcc.std.X|Mean of time domain Gravity accelerometer (units: standard gravity units 'g')std X
+MEAN_tGravityAcc.std.Y|Mean of time domain Gravity accelerometer (units: standard gravity units 'g')std Y
+MEAN_tGravityAcc.std.Z|Mean of time domain Gravity accelerometer (units: standard gravity units 'g')std Z
+MEAN_tBodyAccJerk.mean.X|Mean of time domain Body accelerometer (units: standard gravity units 'g')Jerk mean X
+MEAN_tBodyAccJerk.mean.Y|Mean of time domain Body accelerometer (units: standard gravity units 'g')Jerk mean Y
+MEAN_tBodyAccJerk.mean.Z|Mean of time domain Body accelerometer (units: standard gravity units 'g')Jerk mean Z
+MEAN_tBodyAccJerk.std.X|Mean of time domain Body accelerometer (units: standard gravity units 'g')Jerk std X
+MEAN_tBodyAccJerk.std.Y|Mean of time domain Body accelerometer (units: standard gravity units 'g')Jerk std Y
+MEAN_tBodyAccJerk.std.Z|Mean of time domain Body accelerometer (units: standard gravity units 'g')Jerk std Z
+MEAN_tBodyGyro.mean.X|Mean of time domain Body gyroscope (units: radians/second)mean X
+MEAN_tBodyGyro.mean.Y|Mean of time domain Body gyroscope (units: radians/second)mean Y
+MEAN_tBodyGyro.mean.Z|Mean of time domain Body gyroscope (units: radians/second)mean Z
+MEAN_tBodyGyro.std.X|Mean of time domain Body gyroscope (units: radians/second)std X
+MEAN_tBodyGyro.std.Y|Mean of time domain Body gyroscope (units: radians/second)std Y
+MEAN_tBodyGyro.std.Z|Mean of time domain Body gyroscope (units: radians/second)std Z
+MEAN_tBodyGyroJerk.mean.X|Mean of time domain Body gyroscope (units: radians/second)Jerk mean X
+MEAN_tBodyGyroJerk.mean.Y|Mean of time domain Body gyroscope (units: radians/second)Jerk mean Y
+MEAN_tBodyGyroJerk.mean.Z|Mean of time domain Body gyroscope (units: radians/second)Jerk mean Z
+MEAN_tBodyGyroJerk.std.X|Mean of time domain Body gyroscope (units: radians/second)Jerk std X
+MEAN_tBodyGyroJerk.std.Y|Mean of time domain Body gyroscope (units: radians/second)Jerk std Y
+MEAN_tBodyGyroJerk.std.Z|Mean of time domain Body gyroscope (units: radians/second)Jerk std Z
+MEAN_tBodyAccMag.mean|Mean of time domain Body accelerometer (units: standard gravity units 'g')Mag mean
+MEAN_tBodyAccMag.std|Mean of time domain Body accelerometer (units: standard gravity units 'g')Mag std
+MEAN_tGravityAccMag.mean|Mean of time domain Gravity accelerometer (units: standard gravity units 'g')Mag mean
+MEAN_tGravityAccMag.std|Mean of time domain Gravity accelerometer (units: standard gravity units 'g')Mag std
+MEAN_tBodyAccJerkMag.mean|Mean of time domain Body accelerometer (units: standard gravity units 'g')Jerk magnitude mean
+MEAN_tBodyAccJerkMag.std|Mean of time domain Body accelerometer (units: standard gravity units 'g')Jerk magnitude std
+MEAN_tBodyGyroMag.mean|Mean of time domain Body gyroscope (units: radians/second)Mag mean
+MEAN_tBodyGyroMag.std|Mean of time domain Body gyroscope (units: radians/second)Mag std
+MEAN_tBodyGyroJerkMag.mean|Mean of time domain Body gyroscope (units: radians/second)Jerk magnitude mean
+MEAN_tBodyGyroJerkMag.std|Mean of time domain Body gyroscope (units: radians/second)Jerk magnitude std
+MEAN_fBodyAcc.mean.X|Mean of frequency domain Body accelerometer (units: standard gravity units 'g')mean X
+MEAN_fBodyAcc.mean.Y|Mean of frequency domain Body accelerometer (units: standard gravity units 'g')mean Y
+MEAN_fBodyAcc.mean.Z|Mean of frequency domain Body accelerometer (units: standard gravity units 'g')mean Z
+MEAN_fBodyAcc.std.X|Mean of frequency domain Body accelerometer (units: standard gravity units 'g')std X
+MEAN_fBodyAcc.std.Y|Mean of frequency domain Body accelerometer (units: standard gravity units 'g')std Y
+MEAN_fBodyAcc.std.Z|Mean of frequency domain Body accelerometer (units: standard gravity units 'g')std Z
+MEAN_fBodyAcc.meanFreq.X|Mean of frequency domain Body accelerometer (units: standard gravity units 'g')mean frequency X
+MEAN_fBodyAcc.meanFreq.Y|Mean of frequency domain Body accelerometer (units: standard gravity units 'g')mean frequency Y
+MEAN_fBodyAcc.meanFreq.Z|Mean of frequency domain Body accelerometer (units: standard gravity units 'g')mean frequency Z
+MEAN_fBodyAccJerk.mean.X|Mean of frequency domain Body accelerometer (units: standard gravity units 'g')Jerk mean X
+MEAN_fBodyAccJerk.mean.Y|Mean of frequency domain Body accelerometer (units: standard gravity units 'g')Jerk mean Y
+MEAN_fBodyAccJerk.mean.Z|Mean of frequency domain Body accelerometer (units: standard gravity units 'g')Jerk mean Z
+MEAN_fBodyAccJerk.std.X|Mean of frequency domain Body accelerometer (units: standard gravity units 'g')Jerk std X
+MEAN_fBodyAccJerk.std.Y|Mean of frequency domain Body accelerometer (units: standard gravity units 'g')Jerk std Y
+MEAN_fBodyAccJerk.std.Z|Mean of frequency domain Body accelerometer (units: standard gravity units 'g')Jerk std Z
+MEAN_fBodyAccJerk.meanFreq.X|Mean of frequency domain Body accelerometer (units: standard gravity units 'g')Jerk mean frequency X
+MEAN_fBodyAccJerk.meanFreq.Y|Mean of frequency domain Body accelerometer (units: standard gravity units 'g')Jerk mean frequency Y
+MEAN_fBodyAccJerk.meanFreq.Z|Mean of frequency domain Body accelerometer (units: standard gravity units 'g')Jerk mean frequency Z
+MEAN_fBodyGyro.mean.X|Mean of frequency domain Body gyroscope (units: radians/second)mean X
+MEAN_fBodyGyro.mean.Y|Mean of frequency domain Body gyroscope (units: radians/second)mean Y
+MEAN_fBodyGyro.mean.Z|Mean of frequency domain Body gyroscope (units: radians/second)mean Z
+MEAN_fBodyGyro.std.X|Mean of frequency domain Body gyroscope (units: radians/second)std X
+MEAN_fBodyGyro.std.Y|Mean of frequency domain Body gyroscope (units: radians/second)std Y
+MEAN_fBodyGyro.std.Z|Mean of frequency domain Body gyroscope (units: radians/second)std Z
+MEAN_fBodyGyro.meanFreq.X|Mean of frequency domain Body gyroscope (units: radians/second)mean frequency X
+MEAN_fBodyGyro.meanFreq.Y|Mean of frequency domain Body gyroscope (units: radians/second)mean frequency Y
+MEAN_fBodyGyro.meanFreq.Z|Mean of frequency domain Body gyroscope (units: radians/second)mean frequency Z
+MEAN_fBodyAccMag.mean|Mean of frequency domain Body accelerometer (units: standard gravity units 'g')Mag mean
+MEAN_fBodyAccMag.std|Mean of frequency domain Body accelerometer (units: standard gravity units 'g')Mag std
+MEAN_fBodyAccMag.meanFreq|Mean of frequency domain Body accelerometer (units: standard gravity units 'g')Mag mean frequency
+MEAN_fBodyBodyAccJerkMag.mean|Mean of frequency domain Body Body accelerometer (units: standard gravity units 'g')Jerk magnitude mean
+MEAN_fBodyBodyAccJerkMag.std|Mean of frequency domain Body Body accelerometer (units: standard gravity units 'g')Jerk magnitude std
+MEAN_fBodyBodyAccJerkMag.meanFreq|Mean of frequency domain Body Body accelerometer (units: standard gravity units 'g')Jerk magnitude mean frequency
+MEAN_fBodyBodyGyroMag.mean|Mean of frequency domain Body Body gyroscope (units: radians/second)Mag mean
+MEAN_fBodyBodyGyroMag.std|Mean of frequency domain Body Body gyroscope (units: radians/second)Mag std
+MEAN_fBodyBodyGyroMag.meanFreq|Mean of frequency domain Body Body gyroscope (units: radians/second)Mag mean frequency
+MEAN_fBodyBodyGyroJerkMag.mean|Mean of frequency domain Body Body gyroscope (units: radians/second)Jerk magnitude mean
+MEAN_fBodyBodyGyroJerkMag.std|Mean of frequency domain Body Body gyroscope (units: radians/second)Jerk magnitude std
+MEAN_fBodyBodyGyroJerkMag.meanFreq|Mean of frequency domain Body Body gyroscope (units: radians/second)Jerk magnitude mean frequency
