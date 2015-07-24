@@ -16,34 +16,34 @@ nice.names <- function(ugly.names) {
 # Download and unzip the zip file if it's not already downloaded
 if (!file.exists("UCI HAR Dataset.zip")) {
         zipURL <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
-        download.file(url=zipURL, destfile="UCI HAR Dataset.zip", method="internal", mode="wb")
+        download.file(url=zipURL, destfile="./UCI HAR Dataset.zip", method="internal", mode="wb")
 }
 
 # Unzip the zip file if necessary
-if (!file.exists("UCI HAR Dataset")) unzip(zipfile="UCI HAR Dataset.zip")
+if (!file.exists("UCI HAR Dataset")) unzip(zipfile="./UCI HAR Dataset.zip")
 
 ######################################
 # 1. Merge the training and the test sets to create one data set.
-if (!file.exists("UCI HAR Dataset/X_all.txt")) {
+if (!file.exists("./UCI HAR Dataset/X_all.txt")) {
         # Copy the training data to "all" data
-        file.copy("UCI HAR Dataset/train/X_train.txt","UCI HAR Dataset/X_all.txt")
-        file.copy("UCI HAR Dataset/train/subject_train.txt","UCI HAR Dataset/subject_all.txt")
-        file.copy("UCI HAR Dataset/train/y_train.txt","UCI HAR Dataset/y_all.txt")
+        file.copy("./UCI HAR Dataset/train/X_train.txt","./UCI HAR Dataset/X_all.txt")
+        file.copy("./UCI HAR Dataset/train/subject_train.txt","./UCI HAR Dataset/subject_all.txt")
+        file.copy("./UCI HAR Dataset/train/y_train.txt","./UCI HAR Dataset/y_all.txt")
         # Append the test data to the "all" data
-        file.append("UCI HAR Dataset/X_all.txt","UCI HAR Dataset/test/X_test.txt")
-        file.append("UCI HAR Dataset/subject_all.txt","UCI HAR Dataset/test/subject_test.txt")
-        file.append("UCI HAR Dataset/y_all.txt","UCI HAR Dataset/test/y_test.txt")
+        file.append("./UCI HAR Dataset/X_all.txt","./UCI HAR Dataset/test/X_test.txt")
+        file.append("./UCI HAR Dataset/subject_all.txt","./UCI HAR Dataset/test/subject_test.txt")
+        file.append("./UCI HAR Dataset/y_all.txt","./UCI HAR Dataset/test/y_test.txt")
 }
 
 # Download feature names and create a list of nice column names
-features <- read.delim("UCI HAR Dataset/features.txt", sep=" ", header=FALSE)
+features <- read.delim("./UCI HAR Dataset/features.txt", sep=" ", header=FALSE)
 colnames(features) <- c("varnum","varname")
 good_names <- nice.names(features$varname)
 
 # Read the data from the consolidated data sets
 # Use readr::read_table; it reads the entire file in only
 # 2.87 seconds (elapsed) on my system
-readings.raw <- read_table(file="UCI HAR Dataset/X_all.txt",
+readings.raw <- read_table(file="./UCI HAR Dataset/X_all.txt",
                        col_names=as.character(features$varname))
 names(readings.raw) <- good_names
 
@@ -59,21 +59,21 @@ if (NROW(readings) != 10299) warning(paste("Did not read in 10299 rows, read",
 
 ######################################
 # 3. Uses descriptive activity names to name the activities in the data set
-activity_labels <- read.table("UCI HAR Dataset/activity_labels.txt", sep=" ",
+activity_labels <- read.table("./UCI HAR Dataset/activity_labels.txt", sep=" ",
                               col.names=c("activity_number","activity_name"))
 
 # Let's add on the subject and activity columns
-all_subject <- read.csv("UCI HAR Dataset/subject_all.txt", header=FALSE,
+all_subject <- read.csv("./UCI HAR Dataset/subject_all.txt", header=FALSE,
                           col.names="Subject")
-all_activity <- read.csv("UCI HAR Dataset/y_all.txt", header=FALSE,
+all_activity <- read.csv("./UCI HAR Dataset/y_all.txt", header=FALSE,
                            col.names="activity_number")
 all_activity$activity_number <- factor(all_activity$activity_number)
-levels(all_activity$activity_number)[levels(all_activity$activity_number) == "1"] <- "WALKING"
-levels(all_activity$activity_number)[levels(all_activity$activity_number) == "2"] <- "WALKING_UPSTAIRS"
-levels(all_activity$activity_number)[levels(all_activity$activity_number) == "3"] <- "WALKING_DOWNSTAIRS"
-levels(all_activity$activity_number)[levels(all_activity$activity_number) == "4"] <- "SITTING"
-levels(all_activity$activity_number)[levels(all_activity$activity_number) == "5"] <- "STANDING"
-levels(all_activity$activity_number)[levels(all_activity$activity_number) == "6"] <- "LAYING"
+levels(all_activity$activity_number)[levels(all_activity$activity_number) == "1"] <- "Walking"
+levels(all_activity$activity_number)[levels(all_activity$activity_number) == "2"] <- "Walking upstairs"
+levels(all_activity$activity_number)[levels(all_activity$activity_number) == "3"] <- "Walking downstairs"
+levels(all_activity$activity_number)[levels(all_activity$activity_number) == "4"] <- "Sitting"
+levels(all_activity$activity_number)[levels(all_activity$activity_number) == "5"] <- "Standing"
+levels(all_activity$activity_number)[levels(all_activity$activity_number) == "6"] <- "Laying"
 
 ######################################
 # 4. Appropriately labels the data set with descriptive variable names. 
@@ -100,10 +100,10 @@ colnames(feature.means) <-
 View(feature.means)    # Means of each measure for each subject/activity pair
 
 # Write out the finished product
-write.table(feature.means, file="feature_means.txt", row.name=FALSE)
+write.table(feature.means, file="./feature_means.txt", row.name=FALSE)
 
 # Create the CodeBook.md file
-source("make_codebook.R")
+source("./make_codebook.R")
 
 # Create the README.md file
-source("make_readme.R")
+source("./make_readme.R")

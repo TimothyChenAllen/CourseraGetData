@@ -27,13 +27,13 @@ and a human-friendly listing of variables in the `feature_means.txt` file.
 
 This project requires the following packages to be installed:
 
-* dplyr
-* sqldf
-* readr
+* `dplyr`
+* `sqldf`
+* `readr`
 
 ## Scripts and Interactions
 
-There are three scripts in this project:
+There are four scripts in this project:
 
 1. `run_analysis.R` - Downloads a ZIP file of the data,
 unzips and consolidates it, selects variables of interest, and aggregates
@@ -42,3 +42,4 @@ them.  `run_analysis.R` also calls `make_codebook.R` and `make_readme.R`.
 on the list of variables in the final tidy dataset, transforming the
 variable names into human-friendly names using the function `friendly.description`.
 3. `make_readme.R` - Creates the `README.md` markdown file.
+4. `unit_test.R` - Removes old files, clears the environment, and calls `run_analysis.R`

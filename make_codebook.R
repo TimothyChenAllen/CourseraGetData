@@ -11,7 +11,7 @@ friendly.description <- function(n) {
         # Simply use regular expressions to substitute patterns for readable
         # text.
         n <- sub(pattern="Subject", replacement="Number of test subject (1-30)", n)
-        n <- sub(pattern="Activity", replacement="Activity causing readings: LAYING, SITTING, STANDING, WALKING, WALKING_DOWNSTAIRS, WALKING_UPSTAIRS", n)
+        n <- sub(pattern="Activity", replacement="Activity causing readings: Laying, Sitting, Standing, Walking, Walking downstairs, Walking upstairs", n)
         
         n <- sub(pattern="MEAN_", replacement="Mean of ", n)
         # break up camel case words
@@ -30,7 +30,8 @@ friendly.description <- function(n) {
 }
 
 # Open the file to write to
-cb.con <- file("CodeBook.md", "w+")
+cb.con <- file("./CodeBook.md", "w+")
+
 writeLines("# Code Book\n", con = cb.con)
 writeLines("(See the [README](README.md) for an explanation of project scripts
 and their interactions.)\n", con=cb.con)

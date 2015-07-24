@@ -49,7 +49,7 @@ dataset.  Activites were transformed to give friendly text names.
 Variable Name|Explanation
 -----------|--------
 Subject|Number of test subject (1-30)
-Activity|Activity causing readings: LAYING, SITTING, STANDING, WALKING, WALKING_DOWNSTAIRS, WALKING_UPSTAIRS
+Activity|Activity causing readings: Laying, Sitting, Standing, Walking, Walking downstairs, Walking upstairs
 MEAN_tBodyAcc.mean.X|Mean of time domain Body accelerometer (units: standard gravity units 'g') mean X
 MEAN_tBodyAcc.mean.Y|Mean of time domain Body accelerometer (units: standard gravity units 'g') mean Y
 MEAN_tBodyAcc.mean.Z|Mean of time domain Body accelerometer (units: standard gravity units 'g') mean Z
