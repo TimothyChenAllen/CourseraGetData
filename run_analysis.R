@@ -1,5 +1,6 @@
 # Coursera Getting and Cleaning Data Course Project
-
+######################################
+# PREPARATION - Load libraries, create function, download and unzip data
 require(dplyr)
 require(sqldf)
 require(readr)
@@ -50,6 +51,11 @@ names(readings.raw) <- good_names
 ######################################
 # 2. Extracts only the measurements on the mean and standard deviation for
 # each measurement.
+
+# Select mean, meanFreq, and std columns
+# I consider the mean frequency to be a mean variable (see the 
+# discussion at 
+# https://class.coursera.org/getdata-030/forum/thread?thread_id=228 )
 readings <- select(readings.raw, matches("mean|std", ignore.case=FALSE))
 
 # Check to ensure that we read the right number of rows
