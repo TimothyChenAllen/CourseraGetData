@@ -46,6 +46,9 @@ good_names <- nice.names(features$varname)
 # 2.87 seconds (elapsed) on my system
 readings.raw <- read_table(file="./UCI HAR Dataset/X_all.txt",
                        col_names=as.character(features$varname))
+
+# This line takes care of the 4th requirement: 4. Appropriately labels 
+# the data set with descriptive variable names. 
 names(readings.raw) <- good_names
 
 ######################################
@@ -83,7 +86,7 @@ levels(all_activity$activity_number)[levels(all_activity$activity_number) == "6"
 
 ######################################
 # 4. Appropriately labels the data set with descriptive variable names. 
-#all_activity_labels <- merge(x=all_activity, y=activity_labels, by="activity_number")
+# This is taken care of in Section 1 above.
 
 # Finally, let's cbind everything together
 subject.measures <- cbind(Subject=all_subject$Subject, Activity=all_activity$activity_number,
