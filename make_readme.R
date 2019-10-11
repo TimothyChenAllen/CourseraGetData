@@ -2,7 +2,7 @@
 # This file is sourced from the run_analysis.R script to ensure
 # that the README.md file is current.
 
-# Open the REAME.md file
+# Open the README.md file
 re.con <- file("./README.md", "w+")
 
 writeLines("# CourseraGetData\nCourse project for the Coursera 
